@@ -7,6 +7,12 @@ A PHP multi driver Database Abstarction Layer.
 
 - [x] php_pdo
 
+```php
+/*
+* NOTE: The PDO extension of PHP must be installed and active for you to use this class.
+* The same is true of the PDO modules of each driver you used in your project (eg pdo_mysql for MySQL)
+*/
+```
 ## Dependencies
 
 - [x] [Iriven\ConfigManager](https://github.com/iriven/ConfigManager)
