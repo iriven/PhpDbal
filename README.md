@@ -28,3 +28,19 @@ $DBInstance = new Iriven\PhpDBAL(new DatabaseConfiguration($PoolName='default'))
 * in order to connect to the second database.
 */
 ```
+## Authors
+
+* **Alfred TCHONDJO** - *Project Initiator* - [iriven France](https://www.facebook.com/Tchalf)
+
+## License
+
+This project is licensed under the GNU General Public License V3 - see the [LICENSE](LICENSE) file for details
+
+## Disclaimer
+
+If you use this library in your project please add a backlink to this page by this code.
+
+```html
+
+<a href="https://github.com/iriven/PhpDbal" target="_blank">This Project Uses Alfred's TCHONDJO  PHPDbal Library.</a>
+```
