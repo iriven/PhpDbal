@@ -9,7 +9,7 @@
 namespace Iriven\Libs;
 use PDO;
 use Iriven\Core\Expressions\ExpressionBuilder;
-use Iriven\Core\IrivenPHPQueryBuilder;
+use Iriven\Core\QueryBuilderBase;
 use Iriven\Libs\DatabaseConfiguration;
 
 /**
@@ -292,7 +292,7 @@ class DatabaseConnexion
      */
     protected function loadQueryBuilder()
     {
-        return new IrivenPHPQueryBuilder($this);
+        return new QueryBuilderBase($this);
     }
 
     /**
