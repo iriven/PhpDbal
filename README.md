@@ -94,7 +94,7 @@ $data = [
         $clause = [];
         $params = [];
         $User = $DBInstance->QueryBuilder()
-                ->select('u.idusers AS id, u.usersusername AS username, u.userspassword AS password, u.usersemail AS email, u.usersisactive AS active, u.usersactivationkey AS token, u.usersibanned AS banned')
+                ->select('u.id AS id, u.username AS username, u.password AS password, u.email AS email, u.isactive AS active, u.isbanned AS banned')
                 ->from('users','u');
             if(!empty($username))
             {
@@ -103,7 +103,7 @@ $data = [
                 $params[':pseudo'] = $username;
             }
             if(!empty($uid))        { $clause[] = 'id = :uid';                      $params[':uid']    = $uid;}
-            if(!empty($banned))     { $clause[] = 'u.usersibanned= :banned';        $params[':banned'] = $banned;}
+            if(!empty($banned))     { $clause[] = 'banned= :banned';                $params[':banned'] = $banned;}
             if(!empty($active))     { $clause[] = 'active = :active';               $params[':active'] = $active;}
             if($clause)
                 $User->where(implode(' AND ',$clause))->setParameters($params);
