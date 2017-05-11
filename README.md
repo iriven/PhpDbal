@@ -23,9 +23,40 @@ A powerful PHP multi driver database Abstraction and Access Layer using PDO
 #### Installation And Initialisation
 
 To utilize GeoIPCountry, first import and require PhpDBAL.php file in your project.
-
+##### Installation
 ```php
 require_once 'PhpDBAL.php';
+```
+##### Example Configuration File
+```php
+return  array (
+      'default' =>
+          array (
+              'driver' => 'mysql',
+              'host' => 'localhost1',
+              'dbname' => 'mydatabase1',
+              'user' => 'myusername1',
+              'password' => 'mypassword',
+              'prefix'=>'DB1_',
+              'port' => 3306,
+              'persistent' => 1,
+              'fetchmode' => 'object',
+              'prepare' => 1
+          ),
+      'project2' =>
+          array (
+              'driver' => 'pgsql',
+              'host' => 'localhost2',
+              'dbname' => 'mydatabase2',
+              'user' => 'myusername2',
+              'password' => 'mypassword',
+              'port' => 5432
+          )
+  );
+```
+##### Initialisation
+```php
+
 $DBInstance = new Iriven\PhpDBAL(
                                   new Iriven\Libs\DatabaseConfiguration($PoolName='default')
                                   ); //Initialisation
@@ -46,8 +77,9 @@ $Members = $DBInstance->QueryBuilder()
                 ->setParameters([':active'=>1,':banned'=>0])
                 ->execute();
  if(!$Members)
-                echo  'No active member found';
-   else        print_r($Members);
+     echo  'No active member found';
+ else 
+    print_r($Members);
 ```
 
 ### Compatibility:
