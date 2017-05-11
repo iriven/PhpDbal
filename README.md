@@ -26,7 +26,9 @@ To utilize GeoIPCountry, first import and require PhpDBAL.php file in your proje
 
 ```php
 require_once 'PhpDBAL.php';
-$DBInstance = new Iriven\PhpDBAL(new DatabaseConfiguration($PoolName='default')); //Initialisation
+$DBInstance = new Iriven\PhpDBAL(
+                                  new Iriven\Libs\DatabaseConfiguration($PoolName='default')
+                                  ); //Initialisation
 /* 
 * NOTE: to load a different database instance, just change the "poolname" value. 
 * According to the setting.php file content, you can set the poolname value to "project2",
