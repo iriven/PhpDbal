@@ -1,6 +1,6 @@
 # Iriven PhpDbal
 
-A PHP multi driver Database Abstarction Layer.
+A PHP powerful multi driver PDO Abstarction Layer.
 
 
 ## Requirements
