@@ -81,7 +81,37 @@ $Members = $DBInstance->QueryBuilder()
  else 
     print_r($Members);
 ```
-
+Advanced Usage: retrieve user login informations. here a user can login using his (username + password) or his (email + password)
+```php
+$data = [
+            'uid'=>null,
+            'username'=>null,
+            'email'=>null,
+            'banned'=>false,
+            'active'=>1
+        ];
+        extract($data);
+        $clause = [];
+        $params = [];
+        $User = $DBInstance->QueryBuilder()
+                ->select('u.idusers AS id, u.usersusername AS username, u.userspassword AS password, u.usersemail AS email, u.usersisactive AS active, u.usersactivationkey AS token, u.usersibanned AS banned')
+                ->from('users','u');
+            if(!empty($username))
+            {
+                $expr = $User->expr();
+                $clause[] = $expr->orX($expr->eq('username',':pseudo'),$expr->eq('email',':pseudo'));   
+                $params[':pseudo'] = $username;
+            }
+            if(!empty($uid))        { $clause[] = 'id = :uid';                      $params[':uid']    = $uid;}
+            if(!empty($banned))     { $clause[] = 'u.usersibanned= :banned';        $params[':banned'] = $banned;}
+            if(!empty($active))     { $clause[] = 'active = :active';               $params[':active'] = $active;}
+            if($clause)
+                $User->where(implode(' AND ',$clause))->setParameters($params);
+            if(!$User->execute())
+                echo 'User not found';
+            else 
+                  print_r($User);
+```
 ### Compatibility:
 This project supports most of the well-known database vendors including:
 - [x] MySQL
