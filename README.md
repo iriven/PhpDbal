@@ -14,7 +14,6 @@ A PHP multi driver Database Abstarction Layer.
 
 ## Usage:
 
-
 ### Installation And Initialisation
 
 To utilize GeoIPCountry, first import and require PhpDBAL.php file in your project.
@@ -28,6 +27,20 @@ $DBInstance = new Iriven\PhpDBAL(new DatabaseConfiguration($PoolName='default'))
 * in order to connect to the second database.
 */
 ```
+### Compatibility:
+This project supports most of the most well-known database systems management including:
+- [x] MySQL
+- [x] SQLite
+- [x] PgSQL
+- [x] Oracle
+- [x] SQLServer
+- [x] SQLsrv
+- [x] MsSQL
+- [x] DB2
+- [x] IBM
+- [x] ODCB
+- [x] Sysbase
+
 ## Authors
 
 * **Alfred TCHONDJO** - *Project Initiator* - [iriven France](https://www.facebook.com/Tchalf)
