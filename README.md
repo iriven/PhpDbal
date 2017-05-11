@@ -51,7 +51,7 @@ $Members = $DBInstance->QueryBuilder()
 ```
 
 ### Compatibility:
-This project supports most of the most well-known database management systems including:
+This project supports most of the well-known database vendors including:
 - [x] MySQL
 - [x] SQLite
 - [x] PgSQL
