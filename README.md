@@ -33,6 +33,21 @@ $DBInstance = new Iriven\PhpDBAL(new DatabaseConfiguration($PoolName='default'))
 * in order to connect to the second database.
 */
 ```
+#### Build & execute Query
+List all active members informations in the database 'users' table:
+```php
+$Members = $this->QueryBuilder()
+                ->select()
+                ->from('users','u')
+                ->where('u.isactive = :active')
+                ->andWhere('u.isbanned = :banned')
+                ->setParameters([':active'=>1,':banned'=>0])
+                ->execute();
+ if(!$Members)
+                echo  'No active member found';
+   else        print_r($Members);
+```
+
 ### Compatibility:
 This project supports most of the most well-known database management systems including:
 - [x] MySQL
