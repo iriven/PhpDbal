@@ -28,7 +28,7 @@ $DBInstance = new Iriven\PhpDBAL(new DatabaseConfiguration($PoolName='default'))
 */
 ```
 ### Compatibility:
-This project supports most of the most well-known database systems management including:
+This project supports most of the most well-known database management systems including:
 - [x] MySQL
 - [x] SQLite
 - [x] PgSQL
