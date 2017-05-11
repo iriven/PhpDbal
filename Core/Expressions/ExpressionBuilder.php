@@ -8,7 +8,7 @@
 
 namespace Iriven\Core\Expressions;
 
-use Ressources\Systems\Kernels\Database\DatabaseConnexion;
+use Iriven\Libs\DatabaseConnexion;
 
 
 /**
