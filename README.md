@@ -9,7 +9,7 @@ A PHP multi driver Database Abstarction Layer.
 
 ```php
 /*
-* NOTE: The PDO extension of PHP must be installed and active for you to use this class.
+* NOTE: To use this class, the PDO extension must be installed and active on your web server.
 * The same is true of the PDO modules of each driver you used in your project (eg pdo_mysql for MySQL)
 */
 ```
