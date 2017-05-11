@@ -20,7 +20,7 @@ A PHP multi driver Database Abstarction Layer.
 
 ## Usage:
 
-### Installation And Initialisation
+#### Installation And Initialisation
 
 To utilize GeoIPCountry, first import and require PhpDBAL.php file in your project.
 
