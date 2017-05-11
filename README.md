@@ -36,7 +36,7 @@ $DBInstance = new Iriven\PhpDBAL(new DatabaseConfiguration($PoolName='default'))
 #### Build & execute Query
 List all active members informations in the database 'users' table:
 ```php
-$Members = $this->QueryBuilder()
+$Members = $DBInstance->QueryBuilder()
                 ->select()
                 ->from('users','u')
                 ->where('u.isactive = :active')
