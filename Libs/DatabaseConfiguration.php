@@ -8,7 +8,8 @@
 
 namespace Iriven\Libs;
 
-use Iriven\OptionsResolver;
+use Iriven\ConfigManager;
+use Iriven\PhpOptionsResolver;
 use Iriven\DataCollector;
 
 final class DatabaseConfiguration
@@ -38,7 +39,9 @@ final class DatabaseConfiguration
      */
     private function load(){
         try{
-            if(!$setup = IrivenFramework::Configuration(IrivenFramework::getGlobalVariable('dbCfgFile')))
+            $DS = DIRECTORY_SEPARATOR;
+            $dbCfgFile = dirname(__DIR__).$DS.'Config'.$DS.'setting.php';
+            if(!$setup = new Iriven\ConfigManager($dbCfgFile))
                 throw new \Exception('Paramètres de connexion à la base de données introuvables');
             $dbParams = array_change_key_case($setup->get($this->dbPoolName),CASE_LOWER);
            $dbParams['port'] = $this->setPort($dbParams['driver'],$dbParams['port']?:null);
@@ -46,7 +49,7 @@ final class DatabaseConfiguration
             $dbParams['persistent'] = $dbParams['persistent']? true:false;
             if(isset($dbParams['prepare']))
             $dbParams['prepare'] = $dbParams['prepare']? true:false;
-            $OptionResolver = new OptionsResolver();
+            $OptionResolver = new PhpOptionsResolver();
             $OptionResolver->setDefaults([
                 'driver'=>'mysql',
                 'charset'=>'utf8',
