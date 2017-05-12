@@ -22,7 +22,7 @@ A powerful PHP multi driver database Abstraction and Access Layer using PDO
 
 #### Installation And Initialisation
 
-To utilize GeoIPCountry, first import and require PhpDBAL.php file in your project.
+To utilize PhpDbal, first import and require PhpDBAL.php file in your project.
 ##### Installation
 ```php
 require_once 'PhpDBAL.php';
