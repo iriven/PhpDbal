@@ -86,7 +86,7 @@ $Members = $DBInstance->QueryBuilder()
 ```
 ##### - Advanced Usage:
 
-retrieve user login informations. here a user can login using his (username + password) or his (email + password)
+retrieve user login informations. here a user can login using a couple of (username + password) or (email + password)
 ```php
 $data = [
             'uid'=>null,
