@@ -69,7 +69,7 @@ $DBInstance = new Iriven\PhpDBAL(
 ```
 #### QueryBuilder Usage
 
-##### Basic Usage:
+##### - Basic Usage:
 List all active members informations in the 'users' database table:
 ```php
 $Members = $DBInstance->QueryBuilder()
@@ -84,7 +84,7 @@ $Members = $DBInstance->QueryBuilder()
  else 
     print_r($Members);
 ```
-##### Advanced Usage:
+##### - Advanced Usage:
 
 retrieve user login informations. here a user can login using his (username + password) or his (email + password)
 ```php
