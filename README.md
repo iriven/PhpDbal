@@ -27,7 +27,8 @@ To utilize PhpDbal, first import and require PhpDBAL.php file in your project.
 ```php
 require_once 'PhpDBAL.php';
 ```
-##### Example Configuration File
+##### Example Configuration File (setting.php)
+The configuration file must adhere to the psr-4 standard:
 ```php
 return  array (
       'default' =>
