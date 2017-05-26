@@ -120,7 +120,7 @@ $data = [
                   print_r($User);
 ```
 ### Compatibility:
-This project supports most of the well-known database vendors including:
+This project handles most of the well-known database vendors including:
 - [x] MySQL
 - [x] SQLite
 - [x] PgSQL
