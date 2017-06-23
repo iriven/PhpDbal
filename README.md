@@ -119,6 +119,46 @@ $data = [
             else 
                   print_r($User);
 ```
+
+Insert a new User or Update user data:
+```php
+$data = [
+            'id'=>null,
+            'username'=>null,
+            'email'=>null,
+            'password'=>null,
+            'activationKey'=>null,
+            'banned'=>null,
+            'active'=>null
+        ];
+      extract($data);
+      $values = [];
+      $params = [];
+      if(!empty($username))   { $values['u.usersusername']        = ':pseudo';   $params[':pseudo'] = $username;}
+      if(!empty($email))      { $values['u.usersemail']           = ':email';    $params[':email']  = $email;}
+      if(!empty($password))   { $values['u.userspassword']        = ':passwd';    $params[':passwd']  = $password;}
+      if(!empty($token))      { $values['u.usersactivationkey']   = ':token';    $params[':token'] = $token;}
+      if(!empty($banned))     { $values['u.usersisactive']        = ':banned';   $params[':banned'] = $banned;}
+      if(!empty($active))     { $values['u.usersisactive']        = ':active';   $params[':active'] = $active;}
+      if(!empty($id) and $id>=1)
+      {
+          $QueryBuilder = $this->QueryBuilder()
+              ->update('users','u')
+              ->where('u.idusers = :uid')
+              ->setParameter(':uid',$id);
+          if($values)
+              $QueryBuilder->set($values)->setParameters($params);
+      }
+      else
+      {
+          $QueryBuilder = $this->QueryBuilder()
+              ->insert('users u')
+              ->values($values)
+              ->setParameters($params);
+      }
+      $uid = $QueryBuilder->execute(); 
+```
+
 ### Compatibility:
 This project handles most of the well-known database vendors including:
 - [x] MySQL
