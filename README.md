@@ -85,43 +85,9 @@ $Members = $DBInstance->QueryBuilder()
      echo  'No active member found';
  else 
     print_r($Members);
-```
-##### - Advanced Usage:
-
-retrieve user login informations. here a user can login using a couple of (username + password) or (email + password)
-```php
-$data = [
-            'uid'=>null,
-            'username'=>null,
-            'email'=>null,
-            'banned'=>false,
-            'active'=>1
-        ];
-        extract($data);
-        $clause = [];
-        $params = [];
-        $User = $DBInstance->QueryBuilder()
-                ->select('u.id AS id, u.username AS username, u.password AS password, u.email AS email, u.isactive AS active, u.isbanned AS banned')
-                ->from('users','u');
-            if(!empty($username))
-            {
-                $expr = $User->expr();
-                $clause[] = $expr->orX($expr->eq('username',':pseudo'),$expr->eq('email',':pseudo'));   
-                $params[':pseudo'] = $username;
-            }
-            if(!empty($uid))        { $clause[] = 'id = :uid';                      $params[':uid']    = $uid;}
-            if(!empty($banned))     { $clause[] = 'banned= :banned';                $params[':banned'] = $banned;}
-            if(!empty($active))     { $clause[] = 'active = :active';               $params[':active'] = $active;}
-            if($clause)
-                $User->where(implode(' AND ',$clause))->setParameters($params);
-            if(!$User->execute())
-                echo 'User not found';
-            else 
-                  print_r($User);
-```
-
+    
 Insert a new User or Update user data:
-```php
+
 $data = [
             'id'=>null,
             'username'=>null,
@@ -158,7 +124,39 @@ $data = [
       }
       $uid = $QueryBuilder->execute(); 
 ```
+##### - Advanced Usage:
 
+retrieve user login informations. here a user can login using a couple of (username + password) or (email + password)
+```php
+$data = [
+            'uid'=>null,
+            'username'=>null,
+            'email'=>null,
+            'banned'=>false,
+            'active'=>1
+        ];
+        extract($data);
+        $clause = [];
+        $params = [];
+        $User = $DBInstance->QueryBuilder()
+                ->select('u.id AS id, u.username AS username, u.password AS password, u.email AS email, u.isactive AS active, u.isbanned AS banned')
+                ->from('users','u');
+            if(!empty($username))
+            {
+                $expr = $User->expr();
+                $clause[] = $expr->orX($expr->eq('username',':pseudo'),$expr->eq('email',':pseudo'));   
+                $params[':pseudo'] = $username;
+            }
+            if(!empty($uid))        { $clause[] = 'id = :uid';                      $params[':uid']    = $uid;}
+            if(!empty($banned))     { $clause[] = 'banned= :banned';                $params[':banned'] = $banned;}
+            if(!empty($active))     { $clause[] = 'active = :active';               $params[':active'] = $active;}
+            if($clause)
+                $User->where(implode(' AND ',$clause))->setParameters($params);
+            if(!$User->execute())
+                echo 'User not found';
+            else 
+                  print_r($User);
+```
 ### Compatibility:
 This project handles most of the well-known database vendors including:
 - [x] MySQL
