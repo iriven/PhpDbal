@@ -85,9 +85,9 @@ $Members = $DBInstance->QueryBuilder()
      echo  'No active member found';
  else 
     print_r($Members);
-    
+```    
 Insert a new User or Update user data:
-
+```php
 $data = [
             'id'=>null,
             'username'=>null,
