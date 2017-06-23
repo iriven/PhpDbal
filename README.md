@@ -88,15 +88,15 @@ $Members = $DBInstance->QueryBuilder()
 ```    
 Insert a new User or Update user data:
 ```php
-$data = [
-            'id'=>null,
-            'username'=>null,
-            'email'=>null,
-            'password'=>null,
-            'activationKey'=>null,
-            'banned'=>null,
-            'active'=>null
-        ];
+      $data = [
+                  'id'=>null,
+                  'username'=>null,
+                  'email'=>null,
+                  'password'=>null,
+                  'activationKey'=>null,
+                  'banned'=>null,
+                  'active'=>null
+              ];
       extract($data);
       $values = [];
       $params = [];
